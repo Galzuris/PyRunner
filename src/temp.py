@@ -1,8 +1,7 @@
 import math
 
+#VARS#
 
-
-def run():
-    
-    return 3
+def run():    
+    #CODE#
     pass
