@@ -1,0 +1,7 @@
+(open\s+["'`\(])|(open["'`\(])
+(close\s+["'`\(])|(close["'`\(])
+(exit\s+["'`\(])|(exit["'`\(])
+(import\s+["'`\(])|(import["'`\(])
+(eval\s+["'`\(])|(eval["'`\(])
+(exec\s+["'`\(])|(exec["'`\(])
+(from.+import)
