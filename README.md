@@ -23,12 +23,17 @@ docker run --rm -p 12001:8080 hiro:latest
 POST http://localhost:12001/run
 ```
 
+* **vars** (string) - source of unsafe code, any checks are skipped
+* **code** (string) - main script source
+* **safe** (bool) - safe-run mode, limit execution time by timeout
+* **timeout** (float) - timeout for safe-run mode in seconds
+
 ```json
 {
-    "vars": "a=2", // unsafe code
-    "code": "return math.pow(4, a)", // safe code
-    "safe": false, // safe-run mode, limit execution time by timeout
-    "timeout": 4 // timeout for safe-run mode
+    "vars": "a=2",
+    "code": "return math.pow(4, a)",
+    "safe": false,
+    "timeout": 4
 }
 ```
 
