@@ -40,3 +40,41 @@ POST http://localhost:12001/run
     "success": true
 }
 ```
+
+**Error response example**
+
+```json
+{
+    "execution_error": "invalid syntax",
+    "execution_time": 9.965896606445312e-05,
+    "result": null,
+    "success": false
+}
+```
+
+## Stop rules
+
+To ensure the safety of script execution, you can block certain expressions through rules in `/app/disabled.txt`. 
+
+**Default rules list**
+
+```
+(open\s+["'`\(])|(open["'`\(])
+(close\s+["'`\(])|(close["'`\(])
+(exit\s+["'`\(])|(exit["'`\(])
+(import\s+["'`\(])|(import["'`\(])
+(eval\s+["'`\(])|(eval["'`\(])
+(exec\s+["'`\(])|(exec["'`\(])
+(from.+import)
+```
+
+**Error response example**
+
+```json
+{
+    "execution_error": "unsafe code",
+    "execution_time": null,
+    "result": null,
+    "success": false
+}
+```

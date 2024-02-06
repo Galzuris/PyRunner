@@ -17,7 +17,12 @@ def runner_unsafe():
     timeout = float(data['timeout'] if 'timeout' in data else 1)
 
     if not code.is_safe(src):
-        return jsonify({"success": False, "error": "unsafe code"})
+        return jsonify({
+            "success": False,
+            "result": None,
+            "execution_error": "unsafe code",
+            "execution_time": None,
+        })
     else:
         start = time.time()
         source = code.render(vars, src)
