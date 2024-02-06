@@ -25,10 +25,10 @@ POST http://localhost:12001/run
 
 ```json
 {
-    "vars": "a=2",
-    "code": "return math.pow(4, a)",
-    "timeout": 4,
-    "safe": false
+    "vars": "a=2", // unsafe code
+    "code": "return math.pow(4, a)", // safe code
+    "safe": false, // safe-run mode, limit execution time by timeout
+    "timeout": 4 // timeout for safe-run mode
 }
 ```
 
@@ -77,4 +77,19 @@ To ensure the safety of script execution, you can block certain expressions thro
     "result": null,
     "success": false
 }
+```
+
+## Template
+
+To run the script, it is built using the `/app/template.py` template.
+Stop rules (disabled.txt) for the `#CODE#` block are checked before execution. For the `#VARS#` block any checks are skipped.
+
+```python
+import math
+
+#VARS#
+
+def run():
+#CODE#
+    pass
 ```
